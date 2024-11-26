@@ -31,23 +31,40 @@ const experiences: Experience[] = [
 ];
 ---
 
-<section id="experience" class="px-6 pt-8 bg-gray-50 rounded-lg">
-  <h2 class="text-2xl font-bold text-pink-500 dark:text-pink-400">
+
+<section id="experience" class="px-4 sm:px-6 pt-8 bg-gray-50 rounded-lg">
+  <!-- Título -->
+  <h2 class="text-2xl sm:text-3xl font-bold text-pink-500 dark:text-pink-400 text-center sm:text-left">
     Experience
   </h2>
-  <div class="grid grid-cols-2 gap-4 my-4">
-    {
-      experiences.map((exp) => (
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-          <h3 class="text-xl font-semibold text-gray-600">{exp.role}</h3>
-          <p class="text-sm text-gray-600"></p>
-          <div class="flex justify-between items-center py-2">
-            <strong class="text-gray-600 font-light">{exp.company}</strong>{" "}
-            <span class="text-pink-500 font-light text-sm">{exp.duration}</span>
-          </div>
-          <p class="text-gray-600 mt-2 text-sm">{exp.description}</p>
+
+  <!-- Experiencias -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+    {experiences.map((exp) => (
+      <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <!-- Rol -->
+        <h3 class="text-lg sm:text-xl font-semibold text-gray-700">
+          {exp.role}
+        </h3>
+
+        <!-- Empresa y duración -->
+        <div class="flex justify-between items-center mt-2">
+          <strong class="text-sm sm:text-base text-gray-600 font-light">
+            {exp.company}
+          </strong>
+          <span class="text-sm text-pink-500 font-light">
+            {exp.duration}
+          </span>
         </div>
-      ))
-    }
+
+        <!-- Descripción -->
+        {exp.description && (
+          <p class="text-sm sm:text-base text-gray-600 mt-4">
+            {exp.description}
+          </p>
+        )}
+      </div>
+    ))}
   </div>
 </section>
+

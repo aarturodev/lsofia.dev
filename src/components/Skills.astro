@@ -15,19 +15,20 @@ const skills = [
 ---
 
 <section class="p-4 pt-8 bg-white">
-  <h2 class="text-2xl font-bold text-pink-500 dark:text-pink-400">
+  <!-- Título -->
+  <h2 class="text-2xl sm:text-3xl font-bold text-pink-500 dark:text-pink-400 text-center sm:text-left">
     Skills
   </h2>
-  <div class="flex flex-wrap gap-2 my-4">
-    {
-      skills.map((skill) => (
-        <span
-          class="bg-pink-50 text-neutral-800 font-medium px-4 py-2 rounded-md hover:bg-pink-100 transition"
-          
-        >
-          {skill}
-        </span>
-      ))
-    }
+
+  <!-- Lista de skills -->
+  <div class="flex flex-wrap gap-3 my-4 justify-center sm:justify-start">
+    {skills.map((skill) => (
+      <span
+        class="bg-pink-50 text-neutral-800 font-medium px-4 py-2 rounded-md hover:bg-pink-100 transition text-sm sm:text-base"
+      >
+        {skill}
+      </span>
+    ))}
   </div>
 </section>
+
