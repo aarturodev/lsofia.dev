@@ -1,0 +1,53 @@
+---
+interface Experience {
+  role: string;
+  company: string;
+  duration: string;
+  description: string;
+}
+
+const experiences: Experience[] = [
+  {
+    role: "Senior Data Analyst",
+    company: "Data Insights Corp",
+    duration: "Jan 2022 · Present",
+    description:
+      "Led the creation of interactive dashboards and predictive analysis using Python, SQL, and Power BI. Collaborated with cross-functional teams to optimize business processes based on data insights.",
+  },
+  {
+    role: "Data Visualization Specialist",
+    company: "Tech Analytics Solutions",
+    duration: "Aug 2020 · Dec 2021",
+    description:
+      "Developed advanced reports in Tableau and Power BI to monitor key performance metrics (KPIs). Trained internal teams on the use of visualization and analysis tools.",
+  },
+  {
+    role: "Data Analysis Intern",
+    company: "BigData Analytics",
+    duration: "Jun 2018 · Jan 2019",
+    description:
+      "Performed data cleaning and transformation using Excel and Python. Assisted in creating basic reports for client projects and optimized relational databases.",
+  },
+];
+---
+
+<section id="experience" class="px-6 pt-8 bg-gray-50 rounded-lg">
+  <h2 class="text-2xl font-bold text-pink-500 dark:text-pink-400">
+    Experience
+  </h2>
+  <div class="grid grid-cols-2 gap-4 my-4">
+    {
+      experiences.map((exp) => (
+        <div class="p-6 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-semibold text-gray-600">{exp.role}</h3>
+          <p class="text-sm text-gray-600"></p>
+          <div class="flex justify-between items-center py-2">
+            <strong class="text-gray-600 font-light">{exp.company}</strong>{" "}
+            <span class="text-pink-500 font-light text-sm">{exp.duration}</span>
+          </div>
+          <p class="text-gray-600 mt-2 text-sm">{exp.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

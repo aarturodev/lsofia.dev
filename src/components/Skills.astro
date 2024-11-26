@@ -1,0 +1,33 @@
+---
+const skills = [
+  "📊 Data Analysis",
+  "📈 Basic Visualization",
+  "💻 Python and SQL",
+  "🗂️ Data Cleaning",
+  "📉 Descriptive Statistics",
+  "🖥️ Spreadsheets",
+  "🔍 Pattern Detection",
+  "⚙️ Relational Databases",
+  "🌐 APIs and Data Extraction",
+  "🛠️ Insight Presentation",
+  "🗨️ English"
+];
+---
+
+<section class="p-4 pt-8 bg-white">
+  <h2 class="text-2xl font-bold text-pink-500 dark:text-pink-400">
+    Skills
+  </h2>
+  <div class="flex flex-wrap gap-2 my-4">
+    {
+      skills.map((skill) => (
+        <span
+          class="bg-pink-50 text-neutral-800 font-medium px-4 py-2 rounded-md hover:bg-pink-100 transition"
+          
+        >
+          {skill}
+        </span>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+
+---
+<div class="burbujas"></div>
+
+<style>
+  .burbujas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Detrás del contenido principal */
+  }
+
+  .burbuja {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7); /* Burbuja blanca semitransparente */
+    border-radius: 50%;
+    animation: flotar 10s linear infinite;
+  }
+
+  @keyframes flotar {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh); /* Sube fuera del viewport */
+      opacity: 0; /* Se desvanece */
+    }
+  }
+</style>
+
+<script>
+    if (typeof window !== "undefined") {
+      const burbujasContainer = document.querySelector(".burbujas");
+  
+      function crearBurbuja() {
+        const burbuja = document.createElement("div");
+        burbuja.classList.add("burbuja");
+  
+        // Tamaño aleatorio entre 10px y 80px
+        const size = Math.random() * 70 + 10;
+        burbuja.style.width = `${size}px`;
+        burbuja.style.height = `${size}px`;
+  
+        // Posición aleatoria horizontal
+        burbuja.style.left = `${Math.random() * 100}vw`;
+  
+        // Duración aleatoria entre 5 y 15 segundos
+        const duration = Math.random() * 10 + 5;
+        burbuja.style.animationDuration = `${duration}s`;
+  
+        // Añade la burbuja al contenedor
+        burbujasContainer?.appendChild(burbuja);
+  
+        // Elimina la burbuja después de que termine la animación
+        setTimeout(() => {
+          burbuja.remove();
+        }, duration * 1000);
+      }
+  
+      // Genera una burbuja cada 200ms
+      setInterval(crearBurbuja, 200);
+    }
+  </script>

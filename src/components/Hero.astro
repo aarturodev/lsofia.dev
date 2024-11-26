@@ -1,0 +1,82 @@
+---
+import Image from "astro/components/Image.astro";
+import Email from "./icons/Email.astro";
+import GitHub from "./icons/GitHub.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+
+const profile = {
+  avatar: "/profile.enc",
+  name: "Sofía Chaves",
+  role: " Data Engineer",
+  bio: `a Junior Data Engineer passionate about turning raw data into actionable insights.
+
+With experience in building ETL pipelines, data modeling, and ensuring data quality, I help teams make smarter, data-driven decisions. Skilled in Python, SQL, and cloud platforms, I focus on creating efficient and scalable solutions that drive impact.`,
+  links: [
+    {
+      url: "https://www.linkedin.com/in/sofia-analitic",
+      icon: "LinkedIn",
+    },
+    {
+      url: "https://github.com/sofiachavesalarcon",
+      icon: "GitHub",
+    },
+    {
+      url: "mailto:sofita92004@gmail.com",
+      icon: "Email",
+    },
+  ],
+};
+
+const SKILL_ICONS: Record<string, any> = {
+  GitHub,
+  LinkedIn,
+  Email,
+};
+---
+
+<section class="rounded-xl mt-2">
+  <article
+    class="flex justify-between items-center bg-gradient-to-r from-pink-100 to-purple-200 p-6"
+  >
+    <div class="flex items-center gap-4">
+      <Image
+        width="30"
+        height="30"
+        loading={"eager"}
+        src={profile.avatar}
+        alt="Foto de {profileData.name}"
+        class="rounded-full w-36"
+      />
+      <div>
+        <p class="text-3xl font-semibold text-gray-800">
+          {profile.name}
+        </p>
+        <p class="text-xl text-gray-500 ">
+          {profile.role}
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-1">
+      {
+        profile.links.map(({ url, icon }) => {
+          const Icon = SKILL_ICONS[icon];
+          return (
+            <a
+              href={url}
+              aria-label={icon}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center space-x-3 justify-center whitespace-nowrap rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-700 focus-visible:ring-neutral-500 hover:bg-white bg-purple-100 text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 h-9 w-9  transition-all duration-150 "
+            >
+              <Icon class="size-5" />
+            </a>
+          );
+        })
+      }
+    </div>
+  </article>
+  <p class="text-xl p-4 text-neutral-700 bg-white">
+    Hello! 👋🏻 I'm <strong>Sofia</strong>,
+    {profile.bio}
+  </p>
+</section>

@@ -1,0 +1,91 @@
+---
+import Email from "./icons/Email.astro";
+import GitHub from "./icons/GitHub.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+
+const projects = [
+  {
+    title: "Inventory Management System",
+    description:
+      "Web application for efficient inventory management using React and Node.js.",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    link: "https://github.com/yourusername/inventory-project",
+  },
+  {
+    title: "Data Analysis Dashboard",
+    description:
+      "Interactive dashboard with data visualizations using Power BI and Python.",
+    technologies: ["Python", "Power BI", "Pandas"],
+    link: "https://github.com/yourusername/dashboard-project",
+  },
+  {
+    title: "Personal Website",
+    description:
+      "Portfolio built with Astro and Tailwind CSS to showcase my projects.",
+    technologies: ["Astro", "Tailwind CSS"],
+    link: "https://github.com/yourusername/portfolio",
+  },
+];
+---
+
+<section class="p-4 pt-8 bg-white">
+  <h2 class="text-2xl font-bold text-pink-500 dark:text-pink-400">Projects</h2>
+  <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-2 mt-4">
+    {
+      projects.map((project) => (
+        <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-gray-700">{project.title}</h3>
+            <a
+              aria-label="GitHub"
+              href={project.link}
+              title={project.title}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-pink-600 inline-flex items-center space-x-3 justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-700 focus-visible:ring-neutral-500 hover:bg-pink-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 h-9 w-9 opacity-80 transition-opacity duration-150 hover:opacity-100"
+            >
+              <GitHub class="size-5" />
+            </a>
+          </div>
+          <p class="text-gray-600 mt-2 text-sm">{project.description}</p>
+          {project.technologies && (
+            <ul class="mt-2 text-sm text-gray-500 space-y-1 whitespace-nowrap overflow-x-auto scroll-custom ">
+              {project.technologies.map((tech) => (
+                <li class="inline-block bg-pink-200 text-pink-700 px-2 py-1 rounded-full text-xs mr-2">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Personalización del scrollbar */
+  .scroll-custom::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+  }
+
+  .scroll-custom::-webkit-scrollbar-track {
+    background: #ffffff00; /* Color del fondo de la pista del scroll */
+  }
+
+  .scroll-custom::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del scroll */
+    border-radius: 10px; /* Borde redondeado */
+    border: 2px solid #ffffff00; /* Espacio alrededor del scroll */
+  }
+
+  .scroll-custom::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Color cuando el usuario interactúa con el scroll */
+  }
+
+  /* Soporte para Firefox */
+  .scroll-custom {
+    scrollbar-color: #888 #ffffff00; /* Scroll en gris con pista en blanco */
+    scrollbar-width: thin; /* Barra de desplazamiento fina */
+  }
+</style>
